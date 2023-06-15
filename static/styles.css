@@ -238,7 +238,7 @@ footer {
   text-align: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   height: 100%;
-  margin: 3em auto;
+  margin: 1em auto;
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -260,7 +260,7 @@ footer {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));;
   grid-gap: 10px;
   width:70%;
-  margin: auto
+  margin: 3em auto;
 }
 
 .welcomeText {
