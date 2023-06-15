@@ -1,4 +1,4 @@
-const titleinput = document.querySelector("input[name=title]");
+const titleinput = document.querySelector("input[name=titulo]");
 const sluginput = document.querySelector("input[name=slug]");
 
 const slugify = (val) => {

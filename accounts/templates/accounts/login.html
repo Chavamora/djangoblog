@@ -2,8 +2,9 @@
 
 {%block content%}
 
-<h1>Log in</h1>
+
 <form action="{% url 'accounts:login' %}" class="site-form" method="post">
+    <h1>Iniciar Sesión</h1>
     {%csrf_token%}
     {{ form }}
     {% if request.GET.next %}

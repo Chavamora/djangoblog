@@ -11,17 +11,18 @@
 </head>
 <body>
     <header>
-        <h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" alt="djangonautic" /></a></h1>
+        <!-- <h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" alt="djangonautic" /></a></h1> -->
+        <h1>TIME WISE</h1>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
                 <li>
                     <form action="{% url 'accounts:logout' %}" class="logout-link" method="POST">
                         {%csrf_token%}
-                        <button type="submit">Logout</button>
+                        <button type="submit">Cerrar Sesion</button>
                     </form>
                 </li>
-                <li><a href="{%url 'articles:create'%}" class= "highlight">New Article</a></li>
+                <li><a href="{%url 'accounts:profile'%}" class= "highlight">Perfil</a></li>
                 {% else %}
                 <li><a href="{% url 'accounts:login'%}">Login</a></li>
                 <li><a href="{% url 'accounts:signup'%}">Signup</a></li>
@@ -33,5 +34,9 @@
         {% block content %}
         {% endblock %}
     </div>
+    <footer>
+        <p>Derechos de autor &copy; 2023 Planificador de Vida. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
+

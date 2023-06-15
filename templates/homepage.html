@@ -1,13 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-</head>
-<body>
-    <h1>This is the homepage</h1>
-    <p>Welcome to LifeBalance</p>
-</body>
-</html>
+
+    
+
+
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+
+
+    <!-- <main>
+
+        <div class="division">
+            <h2 id="div1">TIME</h2>
+            <h2 id="div2">WISE</h2>
+            <div id="leftContainer"></div>
+            <div id="rightContainer"> -->
+
+                <p class="welcomeText">¡Bienvenido a TimeWise!
+
+                    TimeWise es tu compañero de confianza para aprovechar al máximo tu tiempo y mantener un estilo de
+                    vida equilibrado. Nuestra aplicación está diseñada para ayudarte a planificar, organizar y optimizar
+                    tus actividades diarias, brindándote el control total sobre tu tiempo y energía.
+
+                    Características destacadas de TimeWise: </p>
+                    <div class="cards">
+                    <div class="card">
+                        <span class="card-icon">&#x1F4C5;</span> Planificación Inteligente
+                        <p>Crea horarios personalizados y organiza tus tareas de manera eficiente.</p>
+                      </div>
+                    
+                      <div class="card">
+                        <span class="card-icon">&#x1F551;</span> Seguimiento del Tiempo
+                        <p>Monitoriza y registra el tiempo que dedicas a cada actividad.</p>
+                      </div>
+                    
+                      <div class="card">
+                        <span class="card-icon">&#x1F514;</span> Recordatorios Personalizados
+                        <p>Configura recordatorios personalizados para tus tareas y eventos importantes.</p>
+                      </div>
+                    
+                      <div class="card">
+                        <span class="card-icon">&#x1F4CA;</span> Análisis de Productividad
+                        <p>Obtén informes detallados sobre tu productividad y hábitos.</p>
+                      </div>
+                    
+                      <div class="card">
+                        <span class="card-icon">&#x1F4BB;</span> Integración Perfecta
+                        <p>TimeWise se sincroniza con tus calendarios existentes, aplicaciones de tareas y dispositivos.</p>
+                      </div>
+                    </div>
+                   <p class="welcomeText">Con TimeWise, es hora de tomar el control de tu tiempo y vivir una vida más equilibrada y
+                    satisfactoria. ¡Comienza tu viaje hacia la productividad y el bienestar hoy mismo con TimeWise!
+
+                    ¡Regístrate ahora y descubre cómo TimeWise puede ayudarte a aprovechar al máximo cada minuto!</p>
+
+
+            </div>
+            <!-- <a href="{%url 'accounts:login'%}" id="begin" class="btn">Comenzar</a> -->
+
+            
+        </div>
+
+    <!-- </main> -->
+
+
+
+    
+
+
+<script src="/resources/js/animations.js"></script>
+{% endblock %}
