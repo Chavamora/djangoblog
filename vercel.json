@@ -2,11 +2,11 @@
 
     "builds": [{
 
-        "src": "lifebalance/wsgi.py",
+        "src": "lifeBalance/wsgi.py",
 
         "use": "@vercel/python",
 
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.10" }
 
     }],
 
@@ -16,7 +16,7 @@
 
             "src": "/(.*)",
 
-            "dest": "lifebalance/wsgi.py"
+            "dest": "lifeBalance/wsgi.py"
 
         }
 
