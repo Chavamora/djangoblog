@@ -12,7 +12,7 @@ def signup_view(request):
             user = form.save()
             login(request, user)
             #log the user in
-            return redirect('articles:list')
+            return redirect('accounts:homepage')
     elif request.method == 'GET':
         form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'form': form})
