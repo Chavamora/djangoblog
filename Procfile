@@ -1,1 +1,1 @@
-web: gunicorn {{ lifeBalance }}.wsgi
+web: gunicorn lifeBalance.wsgi --log-file -
