@@ -238,7 +238,7 @@ footer {
   text-align: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   height: 100%;
-  margin: auto;
+  margin: 3em auto;
     align-content: center;
     justify-content: center;
     align-items: center;
