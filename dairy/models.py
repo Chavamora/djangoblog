@@ -7,6 +7,7 @@ class Dairy_Entry(models.Model):
     cuerpo = models.TextField(max_length=500)
     fecha = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User,on_delete=models.PROTECT, default=None)
+    favorito = models.BooleanField(default=False)
 
     # python manage.py makemigrations
     # python manage.py migrate
@@ -16,3 +17,4 @@ class Dairy_Entry(models.Model):
     
     def snippet(self):
         return self.cuerpo[:50] + "..."
+
