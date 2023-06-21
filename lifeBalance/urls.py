@@ -25,12 +25,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 from articles import views as article_views
 from hobbies import views as hobbies_views
+from dairy import views as dairy_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('articles/', include('articles.urls')),
     path('hobbies/', include('hobbies.urls')),
+    path('dairy/', include('dairy.urls')),
     path('about/', views.about),
     path('', views.home, name = "home"),
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

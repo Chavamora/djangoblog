@@ -109,8 +109,6 @@ nav button {
   }
   
   main {
-    
- 
     background-size: cover;
     text-align: center;
     background-position: bottom ;
@@ -120,7 +118,6 @@ nav button {
 
   
   .btn {
-    
     left: 44.5%;
     display: inline-block;
     padding: 1em 1em;
@@ -144,17 +141,15 @@ nav button {
     color: #fff;
     padding: 10px;
     text-align: center;
+    padding: 1em;
   }
 
-
-  
   html,
 body {
   height: 100%;
 }
 
 .wrapper {
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -168,8 +163,9 @@ main {
 
 footer {
   /* ... Estilos previos ... */
-  position: relative;
+  position: absolute;
   bottom: 0;
+  width: 100%;
 }
 
 .division h2 {
@@ -270,7 +266,7 @@ footer {
   }
  
 
-  .articles {
+.articles {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px;
@@ -323,10 +319,6 @@ footer {
     margin: 0 auto;
 }
 
-
-
-
-
 .site-form input, .site-form textarea{
     display: block;
     margin: 20px 0 0 0;
@@ -372,7 +364,6 @@ a.highlight {
     cursor: pointer;
 }
 
-
 h1 {
     text-align: center;
 }
@@ -416,8 +407,6 @@ h1 {
     height: 100%;
 }
 
-
-
 .homepage_items div > *{
     padding-top: 1em;
 }
@@ -426,7 +415,7 @@ h1 {
     width: 1em;
 }
 
-.hobbies {
+.item_list {
     display: flex;
     flex-direction: column;
     margin: 2em auto;
@@ -434,7 +423,7 @@ h1 {
     position: relative;
 }
 
-.hobbies div {
+.item {
     padding: 0.5em;
     display: flex;
     flex-direction: column;
@@ -446,25 +435,29 @@ h1 {
     align-items: start;
 }
 
-.hobbie h2 {
+.item_header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.item h2 {
     margin: 0;
     font-size: 1em;
     padding-bottom: 0.5em;
 }
 
-.hobbie a {
+.item a {
     text-decoration: none;
     color: black;
 }
 
-#addHobbieSvg {
+#addSvg {
     position: absolute;
     width: 3em;
     top: 110%;
     right: -20%;
 }
-
-
 
 .hobbies div > *{
     padding-top: 1em;
@@ -472,4 +465,5 @@ h1 {
 
 .homepage_items svg {
     width: 1em;
+
 }
