@@ -1,0 +1,13 @@
+{%extends 'base_layout.html'%}
+
+{%block content%}
+    <div class="create-dairy">
+        <h2>Añade a tu diario</h2>
+        <form class="site-form" action="{% url 'dairy:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Create">
+        </form>
+    </div>
+    <script src="/static/slugify.js"></script>
+{%endblock%}
