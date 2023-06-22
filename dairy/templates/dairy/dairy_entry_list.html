@@ -16,8 +16,8 @@
     </svg>
 
     <div class="filters">
-        <button id="filter-favoritos" value="ver favoritos" type="submit" name="favorito">favoritos</button>
-    </div>
+        <input type="checkbox" id="filtro-favoritos">
+        <label for="filtro-favoritos">Mostrar solo favoritos</label>    </div>
 
     {%if dairy%}
     {%for dairy_entry in dairy%}
@@ -33,7 +33,7 @@
             <div class="item_buttons">
 
                 <svg class="star-icon {% if dairy_entry.favorito %}favorite{% endif %}"
-                    data-entry-id="{{ dairy_entry.id }}" id="star-icon" version="1.0" id="Layer_1"
+                    data-entry-id="{{ dairy_entry.id }}" id="star-icon-{{dairy_entry.id}}" version="1.0" id="Layer_1"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64"
                     enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

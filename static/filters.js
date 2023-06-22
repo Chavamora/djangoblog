@@ -1,26 +1,20 @@
-document.getElementById("filter-favoritos").addEventListener("click", function () {
-    // Realiza la solicitud AJAX para obtener los elementos favoritos
-    
-    
-    filterActive = this.classList.contains("filter_active");
-    var item = document.querySelector(".item")
-    var hasFavorite = item.querySelector(".favorite");
+const filtroFavoritos = document.getElementById('filtro-favoritos');
+const posts = document.getElementsByClassName('item');
 
-    if(filterActive) {
-        //desactivar filtro
-        this.classList.remove("filter_active");
-        if(!hasFavorite)
-            item.style.visibility = "visible";
+filtroFavoritos.addEventListener('change', () => {
+  const mostrarFavoritos = filtroFavoritos.checked;
 
+  for (let i = 0; i < posts.length; i++) {
+    const post = posts[i];
+    const iconoFavorito = post.querySelector('.star-icon');
+
+    if (mostrarFavoritos && !iconoFavorito.classList.contains('favorite')) {
+      post.style.display = 'none';
     } else {
-        //activar filtro
-        this.classList.add("filter_active");
-        if(!hasFavorite)
-            item.style.visibility = "hidden";
-        
-
+      post.style.display = 'block';
     }
-
-
-   
+  }
 });
+
+    
+    
