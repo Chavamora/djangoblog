@@ -437,6 +437,7 @@ h1 {
     align-content: center;
     align-items: start;
     flex-wrap: wrap;
+    border-radius: 1em;
 }
 
 .item_header {
