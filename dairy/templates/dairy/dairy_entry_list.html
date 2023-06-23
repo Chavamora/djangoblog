@@ -16,13 +16,14 @@
     </svg>
 
     <div class="filters">
-        <input type="checkbox" id="filtro-favoritos">
-        <label for="filtro-favoritos">Mostrar solo favoritos</label>    </div>
+        
 
     {%if dairy%}
+        <input type="checkbox" id="filtro-favoritos">
+        <label for="filtro-favoritos">Mostrar solo favoritos</label>    </div>
     {%for dairy_entry in dairy%}
 
-    <div class="item">
+    <div class="item" id="item-{{dairy_entry.id}}">
         <div class="item_header">
             <h2><a href="{%url 'dairy:detail' id=dairy_entry.id%}"> {{ dairy_entry.titulo }} </a></h2>
             <h2><a href="{%url 'dairy:detail' id=dairy_entry.id%}"> {{ dairy_entry.fecha }} </a></h2>
@@ -44,7 +45,7 @@
                         </path>
                     </g>
                 </svg>
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="delete-icon" data-entry-id="{{ dairy_entry.id }}" id="delete-icon-{{dairy_entry.id}}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
@@ -69,4 +70,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/static/favorite.js"></script>
 <script src="/static/filters.js"></script>
+<script src="/static/delete.js"></script>
 {% endblock %}

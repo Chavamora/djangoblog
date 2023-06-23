@@ -26,6 +26,8 @@ from django.conf import settings
 from articles import views as article_views
 from hobbies import views as hobbies_views
 from dairy import views as dairy_views
+from tasks import views as tasks_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +35,7 @@ urlpatterns = [
     path('articles/', include('articles.urls')),
     path('hobbies/', include('hobbies.urls')),
     path('dairy/', include('dairy.urls')),
+    path('tasks/', include('tasks.urls')),
     path('about/', views.about),
     path('', views.home, name = "home"),
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

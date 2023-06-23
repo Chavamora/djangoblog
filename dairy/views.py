@@ -22,9 +22,6 @@ def dairy_entry_list(request):
         dairy = Dairy_Entry.objects.filter(author=current_user)
     return render(request, 'dairy/dairy_entry_list.html', {"dairy": dairy})
 
-    
-
-
 def dairy_entry_favorite(request, id):
     dairy_entry = Dairy_Entry.objects.get(id=id)
     if request.method == 'POST':
@@ -36,6 +33,13 @@ def dairy_entry_favorite(request, id):
        
         print(dairy_entry.favorito) 
         return JsonResponse({'message': 'Entrada marcada como favorita correctamente.'})
+    
+def dairy_entry_delete(request, id):
+    dairy_entry = Dairy_Entry.objects.get(id=id)
+    if request.method == 'DELETE':
+        dairy_entry.delete()
+ 
+        return JsonResponse({'message': 'Entrada eliminada correctamente.'})
     
 def dairy_entry_details(request, id):
     dairy_entry = Dairy_Entry.objects.get(id=id)
