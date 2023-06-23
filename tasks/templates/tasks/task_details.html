@@ -1,0 +1,19 @@
+{%extends 'base_layout.html'%}
+
+{%block content%}
+
+<div class="wrapper">
+<div class="item-detail">
+    
+        <!-- <img src="{{dairy_entry.thumb.url}}" alt="thumbnail"/> -->
+        <h2> {{task.titulo}} </h2>
+        <p> {{task.notas}} </p>
+        <p> {{task.fecha_limite}} </p>
+        <p> {{task.hora_comienzo}} </p>
+        <p> {{task.hora_limite}} </p>
+        <p> {{task.urgencia}} </p>
+        <p> {{task.importancia}} </p>
+    
+</div>
+</div>
+{% endblock %}

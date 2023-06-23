@@ -16,14 +16,18 @@
         <nav>
             <ul>
                 {% if user.is_authenticated %}
+                
                 <li>
                     <form action="{% url 'accounts:logout' %}" class="logout-link" method="POST">
                         {%csrf_token%}
                         <button type="submit">Cerrar Sesion</button>
                     </form>
                 </li>
+                <li><a href="{%url 'accounts:homepage'%}">Inicio</a></li>
                 <li><a href="{%url 'accounts:profile'%}" class= "highlight">Perfil</a></li>
+                
                 {% else %}
+
                 <li><a href="{% url 'accounts:login'%}">Login</a></li>
                 <li><a href="{% url 'accounts:signup'%}">Signup</a></li>
                 {% endif %}
@@ -36,9 +40,9 @@
         
     </div>
     
-    <footer>
+    <!-- <footer>
         <p>Derechos de autor &copy; 2023 Time Wise. Todos los derechos reservados.</p>
-    </footer>
+    </footer> -->
 </body>
 </html>
 

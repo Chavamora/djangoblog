@@ -46,6 +46,7 @@ nav li {
 .wrapper {
     max-width: 960px;
     margin: 0 auto;
+    
 }
 nav button {
     background: none;
@@ -147,6 +148,7 @@ nav button {
   html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 .wrapper {
@@ -476,7 +478,7 @@ h1 {
 #addSvg {
     position: absolute;
     width: 3em;
-    top: 110%;
+    top: 10%;
     right: -20%;
 }
 
@@ -512,4 +514,74 @@ h1 {
   color: white;
   /* Estilos cuando está marcado como favorito */
   fill: gold;
+}
+
+.tasks {
+  position: relative;
+}
+
+#opciones-crear {
+  display: none;
+  padding: 1em;
+  background-color: lightgray;
+  position: absolute;
+  border-radius: 20px;
+  text-align: center;
+  opacity: 0;
+  overflow-x: hidden;
+  width: 100%;
+  transition: opacity, width 0.3s ease;
+  pointer-events: none;
+}
+
+#opciones-crear a{
+  pointer-events: all;
+    margin: 0 auto;
+    padding: 1em;
+    border: none;
+    border-radius: 20px;
+    width:80%;
+    margin-top: 1em; 
+    transition: background-color 0.3s;
+    background-color: #bbb;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+#opciones-crear a:hover {
+    background-color: rgb(89, 89, 89);
+    
+}
+
+
+#opciones-crear.mostrar {
+  display: block;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0;
+       left: 100%;  }
+  100% { opacity: 1;
+        left: 0; }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; 
+      left: 0}
+  100% { opacity: 0; 
+      left: 100%}
+}
+
+
+.fade-in {
+  animation: fade-in 0.3s ease forwards;
+}
+
+.fade-out {
+  animation: fade-out 0.3s ease forwards;
+}
+
+.volver_btn {
+  margin: 0 auto;
 }

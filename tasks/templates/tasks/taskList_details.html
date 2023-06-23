@@ -1,0 +1,70 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h1>{{taskList.nombre}}</h1>
+<a class="volver_btn" href="{%url 'tasks:tl_list'%}">volver</a>
+
+<div id="tasks" class="tasks item_list">
+
+    <svg id="addSvg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a id="crear-task" href="{%url 'tasks:createtlid' tlid=taskList.id%}">
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+        <g id="SVGRepo_iconCarrier">
+            <path
+                d="M12 2C6.49 2 2 6.49 2 12C2 17.51 6.49 22 12 22C17.51 22 22 17.51 22 12C22 6.49 17.51 2 12 2ZM16 12.75H12.75V16C12.75 16.41 12.41 16.75 12 16.75C11.59 16.75 11.25 16.41 11.25 16V12.75H8C7.59 12.75 7.25 12.41 7.25 12C7.25 11.59 7.59 11.25 8 11.25H11.25V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V11.25H16C16.41 11.25 16.75 11.59 16.75 12C16.75 12.41 16.41 12.75 16 12.75Z"
+                fill="#292D32"></path>
+                
+        </g>
+        </a>
+    </svg>
+
+    {%if tasks%}
+    <div class="filters">
+        <input type="checkbox" id="filtro_fecha_limite">
+        <label for="filtro_fecha_limite">Ordenar por fecha limite</label>
+    </div>
+    {%for task in tasks%}
+
+    <div class="item" id="item-{{task.id}}" data-fecha-limite="{{task.fecha_limite}}" data-original-order="task.id">
+        <div class="item_header">
+            <h2><a href="{%url 'tasks:details' id=task.id%}"> {{ task.titulo }} </a></h2>
+            <h2><a href="{%url 'tasks:details' id=task.id%}"> {{ task.notas }} </a></h2>
+        </div>
+        <div class="item_body">
+            <p> {{task.snippet}} </p>
+            <p> {{task.date}} </p>
+            <div class="item_buttons">
+
+                <svg class="delete-icon" data-entry-id="{{ task.id }}" id="delete-icon-{{task.id}}" viewBox="0 0 24 24"
+                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <g id="Interface / Trash_Full">
+                            <path id="Vector"
+                                d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20"
+                                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    {%else%}
+
+    <p>Esta lista no tiene tareas, haz click en "+" para agregar una! </p>
+    {%endif%}
+</div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/static/favorite.js"></script>
+<script src="/static/filters.js"></script>
+<script src="/static/taskdelete.js"></script>
+{% endblock %}

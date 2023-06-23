@@ -1,0 +1,22 @@
+{%extends 'base_layout.html'%}
+
+{%block content%}
+    <div class="create-dairy">
+        <h2>Nueva tarea</h2>
+        
+        {%if tlid%}
+        <form class="site-form" action="{% url 'tasks:createtlid' tlid=tlid %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+        <input type="submit" value="Create">
+        </form>
+        {%else%}
+        <form class="site-form" action="{% url 'tasks:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+        <input type="submit" value="Create">
+        </form>
+        {%endif%}
+    </div>
+    <script src="/static/slugify.js"></script>
+{%endblock%}

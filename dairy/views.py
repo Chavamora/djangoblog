@@ -39,7 +39,7 @@ def dairy_entry_delete(request, id):
     if request.method == 'DELETE':
         dairy_entry.delete()
  
-        return JsonResponse({'message': 'Entrada eliminada correctamente.'})
+        return JsonResponse({'message': 'Entrada eliminada  correctamente.'})
     
 def dairy_entry_details(request, id):
     dairy_entry = Dairy_Entry.objects.get(id=id)
