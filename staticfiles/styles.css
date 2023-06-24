@@ -45,7 +45,7 @@ nav li {
 
 .wrapper {
     max-width: 960px;
-    margin: 0 auto;
+    margin: 2em auto;
     
 }
 nav button {
@@ -372,32 +372,36 @@ h1 {
 }
 
 .homepage_items{
-    display: flex;
-    border: 2px solid #333;
-    border-radius: 4px;
-    flex-wrap: wrap;
-    width: 100%;
-    margin: 5% auto;
+  display: flex;
+  background-color: #e4e4e4;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 5% auto;
 }
+
+
 
 .homepage_items div {
-    position: relative;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    margin: 1em;
-    border: 2px solid black;
-    padding: 0 1em;
-    padding-bottom: 1em;
-    align-content: space-between;
-    background-color: #e4e4e4;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 2em 1em;
+  padding: 0 1em;
+  padding-bottom: 1em;
+  align-content: space-between;
+  background-color: #e4e4e4;
+  border-radius: 20px;
 }
 
+
+
 .homepage_items div:hover {
-    color: white;
-    transition: all 0.5s;
-    background-color: rgb(157, 157, 157);
+  color: white;
+  transition: all 0.5s;
+  background-color: lightgray;
 }
 
 .homepage_items div:hover svg path {
@@ -421,6 +425,7 @@ h1 {
 .item_list {
     display: flex;
     flex-direction: column;
+    padding: 1em 0;
     margin: 2em auto;
     width: 40vw;
     position: relative;
@@ -437,14 +442,15 @@ h1 {
     align-content: center;
     align-items: start;
     flex-wrap: wrap;
+    border-radius: 1em;
 }
 
-.item_header {
+/* .item_header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-}
+} */
 
 .item_body {
   display: flex;
@@ -452,13 +458,15 @@ h1 {
   flex-direction: row;
   flex: 1;
   width: 100%;
-  flex-wrap: wrap;
+  flex-wrap: wrap
 }
 
 .item_buttons {
   padding-right: 1em;
+  align-self: end;
   
 }
+
 
 .item_buttons svg {
   width: 2em;
@@ -477,9 +485,9 @@ h1 {
 
 #addSvg {
     position: absolute;
+    right: 0;
     width: 3em;
-    top: 10%;
-    right: -20%;
+    top: 0;
 }
 
 .hobbies div > *{
@@ -532,6 +540,7 @@ h1 {
   width: 100%;
   transition: opacity, width 0.3s ease;
   pointer-events: none;
+  
 }
 
 #opciones-crear a{
@@ -547,6 +556,14 @@ h1 {
     display: block;
     text-decoration: none;
     color: black;
+}
+
+.No_Urgente {
+  color: rgb(74, 146, 213);
+}
+
+.Urgente {
+  color: rgb(246, 65, 65)
 }
 
 #opciones-crear a:hover {
@@ -584,4 +601,64 @@ h1 {
 
 .volver_btn {
   margin: 0 auto;
+}
+
+
+
+/* input[type="radio"] {
+  visibility: visible;
+  position: relative;
+
+}
+
+#id_mood label {
+  position: absolute;
+  
+  cursor: pointer;
+  padding: 5px;
+}
+
+#id_mood label:hover {
+  background-color: lightgray;
+}
+
+input[type="radio"]:checked {
+  background-color: lightgray;
+  
+} */
+
+@media (max-width: 500px) {
+  .homepage_items {
+    
+    width: 80%;
+  }
+
+  h1 {
+    font-size: 1em;
+  }
+
+  .cards {
+    width: 90%;
+  }
+  .item_list {
+    width: 90% ;
+  }
+  
+}
+
+.item_group {
+  background-color: lightgray;
+  padding: 1em 2em;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.tasks .item {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 1;
+  flex-wrap: wrap;
 }
