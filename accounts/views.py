@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
+from tasks.models import Task
+from dairy.models import Dairy_Entry
+from hobbies.models import Hobbie
 
 # Create your views here.
 def signup_view(request):
@@ -40,7 +42,15 @@ def logout_view(request):
     
 @login_required(login_url= 'accounts:login')
 def homepage_view (request):
-    return render(request, 'accounts/userhomepage.html')
+    current_user = request.user
+    hobbies = Hobbie.objects.filter(author=current_user)
+    tasks = Task.objects.filter(author=current_user)
+    dairy_entries = Dairy_Entry.objects.filter(author=current_user)
+    return render(request, 'accounts/userhomepage.html', {
+        'hobbies': hobbies,
+        'tasks': tasks,
+        'dairy_entries': dairy_entries,
+        })
 
 @login_required(login_url= 'accounts:login')
 def profile_view (request):

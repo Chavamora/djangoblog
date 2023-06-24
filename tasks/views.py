@@ -10,10 +10,11 @@ from . import forms
 def taskList_list(request):
     
     current_user = request.user
-    generalTasks = Task.objects.filter(id_lista=None, author=current_user)
+    generalTasks = Task.objects.filter(id_lista=None, author=current_user, completed=False)
+    generalCompletedTasks = Task.objects.filter(id_lista=None, author=current_user, completed=True)
     taskLists = TaskList.objects.filter(author=current_user).order_by("fecha_limite")
 
-    return render(request, 'tasks/taskList_list.html', {"taskLists": taskLists, "generalTasks": generalTasks,})
+    return render(request, 'tasks/taskList_list.html', {"taskLists": taskLists, "generalTasks": generalTasks, "generalCompletedTasks": generalCompletedTasks})
 
 def taskList_favorite(request, id):
     taskList = TaskList.objects.get(id=id)
@@ -122,3 +123,19 @@ def task_create(request, tlid=None):
             form = forms.CreateTask(author=request.user)
         
     return render(request, 'tasks/task_create.html', {'form': form, 'tlid': tlid})
+
+def task_completed(request):
+    if request.method == 'POST' :
+        task_id = request.POST.get('task_id')
+        
+
+        # Lógica para marcar la tarea como completada en la base de datos
+
+        task = Task.objects.get(id=task_id)
+        task.completed = True
+        task.save()
+        updated_status = "completada"
+        response_data = {'titulo': task.titulo}
+        return JsonResponse({'success': True, 'status': updated_status})
+    else:
+        return JsonResponse({'error': 'Invalid request'})

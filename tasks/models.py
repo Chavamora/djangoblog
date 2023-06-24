@@ -38,6 +38,7 @@ class Task(models.Model):
     urgencia = models.CharField(max_length=10, choices=URGENCIA_CHOICES)
     importancia = models.CharField(max_length=15, choices=IMPORTANCIA_CHOICES)
     id_lista = models.ForeignKey(TaskList,on_delete=models.PROTECT, default=None, null=True, blank=True)
+    completed = models.BooleanField(default=False)
     author = models.ForeignKey(User,on_delete=models.PROTECT, default=None)
     # python manage.py makemigrations
     # python manage.py migrate
