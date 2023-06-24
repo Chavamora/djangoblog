@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'dairy',
     'hobbies',
     'tasks',
+    'emoji_picker',
 ]
 
 MIDDLEWARE = [

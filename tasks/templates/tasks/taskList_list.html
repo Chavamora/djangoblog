@@ -30,8 +30,9 @@
         <input type="checkbox" id="filtro-favoritos">
         <label for="filtro-favoritos">Mostrar solo favoritos</label>
     </div> -->
+    <div class="item_group">
     {%for taskList in taskLists%}
-
+    
     <div class="item" id="item-{{taskList.id}}">
         <div class="item_header">
             <h2><a href="{%url 'tasks:tl_details' id=taskList.id%}"> {{ taskList.nombre }} </a></h2>
@@ -57,18 +58,27 @@
             </div>
         </div>
     </div>
+    
     {%endfor%}
+</div>
     {%else%}
 
     <p>Aun no tienes ninguna tarea, haz click en "+" para agregar una! </p>
     {%endif%}
     {%if generalTasks%}
     <h1>Tareas Generales</h1>
+    <div class="item_group">
     {%for task in generalTasks%}
     <div class="item" id="item-{{task.id}}">
         <div class="item_header">
-            <h2 class="{{task.urgencia}}">{{task.urgencia}}</h2>
-            <h2><a href="{%url 'tasks:details' id=task.id%}"> {{ task.titulo }} </a></h2>
+            <h2 class="{{ task.urgencia }}">
+                {% if task.urgencia == "Urgente" %}
+                  Urgente
+                {% else %}
+                  No urgente
+                {% endif %}
+              </h2>           
+               <h2><a href="{%url 'tasks:details' id=task.id%}"> {{ task.titulo }} </a></h2>
             <h2><a href="{%url 'tasks:details' id=task.id%}"> {{ task.fecha_limite }} </a></h2>
         </div>
         <div class="item_body">
@@ -91,7 +101,9 @@
             </div>
         </div>
     </div>
+
     {%endfor%}
+</div>
     {%else%}
 
     {%endif%}

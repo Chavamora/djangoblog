@@ -4,8 +4,12 @@ from .models import Task, TaskList
 class CreateTask(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         current_list_id = kwargs.pop('current_list_id', None)
+        author = kwargs.pop('author', None)  # Obtén el usuario actual de los argumentos
         super(CreateTask, self).__init__(*args, **kwargs)
         self.fields['id_lista'].initial = current_list_id
+        
+        # Actualiza el queryset del campo 'id_lista' para limitar las opciones al usuario actual
+        self.fields['id_lista'].queryset = TaskList.objects.filter(author=author)
 
     class Meta:
         model = Task

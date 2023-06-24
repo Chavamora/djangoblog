@@ -8,9 +8,9 @@ from . import forms
 
 @login_required(login_url= 'accounts:login')
 def taskList_list(request):
-    generalTasks = Task.objects.filter(id_lista=None)
-    favoritos = request.GET.get("favoritos", False)
+    
     current_user = request.user
+    generalTasks = Task.objects.filter(id_lista=None, author=current_user)
     taskLists = TaskList.objects.filter(author=current_user).order_by("fecha_limite")
 
     return render(request, 'tasks/taskList_list.html', {"taskLists": taskLists, "generalTasks": generalTasks,})
@@ -93,13 +93,13 @@ def task_details(request, id):
 
 @login_required(login_url= 'accounts:login')
 def task_create(request, tlid=None):
-    print(tlid)
+    author = request.user
     if request.method == 'POST':
         if (tlid):
             current_list_id = TaskList.objects.get(id=tlid)
-            form = forms.CreateTask(request.POST, current_list_id=current_list_id)
+            form = forms.CreateTask(request.POST, author=request.user, current_list_id=current_list_id)
         else:
-            form = forms.CreateTask(request.POST)
+            form = forms.CreateTask(request.POST, author=request.user)
 
         if form.is_valid():
             # save task to db
@@ -116,9 +116,9 @@ def task_create(request, tlid=None):
             
     else:
         if (tlid):
-            current_list_id = TaskList.objects.get(id=tlid)
-            form = forms.CreateTask(current_list_id=current_list_id)
+            current_list_id = TaskList.objects.get( id=tlid)
+            form = forms.CreateTask(author=request.user, current_list_id=current_list_id)
         else:
-            form = forms.CreateTask()
+            form = forms.CreateTask(author=request.user)
         
     return render(request, 'tasks/task_create.html', {'form': form, 'tlid': tlid})

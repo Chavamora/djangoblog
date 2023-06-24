@@ -21,12 +21,12 @@ class TaskList(models.Model):
 class Task(models.Model):
     URGENCIA_CHOICES = [
         ('Urgente', 'Urgente'),
-        ('No Urgente', 'No Urgente'),
+        ('No_Urgente', 'No Urgente'),
     ]
     
     IMPORTANCIA_CHOICES = [
         ('Importante', 'Importante'),
-        ('No Importante', 'No Importante'),
+        ('No_Importante', 'No Importante'),
     ]
 
     titulo = models.CharField(max_length=100)
