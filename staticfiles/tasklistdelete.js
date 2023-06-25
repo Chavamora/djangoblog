@@ -19,7 +19,14 @@ $(document).ready(function () {
   
           success: function (response) {
             console.log(response);
+            deletedItem.remove()
             deletedItem.css("display", "none");
+            
+            if($('#completed-tasks').children().length === 0) {
+              $('#completed-tasks').remove();
+              $('#completed-tasks-h1').remove();
+              
+            }
           },
           error: function (xhr, errmsg, err) {
             // Manejo de errores si la solicitud falla

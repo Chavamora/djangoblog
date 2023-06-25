@@ -320,6 +320,7 @@ footer {
     
     padding: 20px;
     margin: 0 auto;
+    
 }
 
 .site-form input, .site-form textarea{
@@ -356,6 +357,19 @@ a.highlight {
     padding: 0;
 }
 
+.site-form input, textarea {
+  border: none;
+  border-radius: 20px;
+}
+
+.site-form select {
+  background: none;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 0 auto;
+}
+
 .site-form input[type="submit"] {
     background: #00dba0;
     border: 0;
@@ -373,7 +387,7 @@ h1 {
 
 .homepage_items{
   display: flex;
-  background-color: #e4e4e4;
+  
   border-radius: 20px;
   flex-wrap: wrap;
   width: 100%;
@@ -383,17 +397,19 @@ h1 {
 
 
 .homepage_items div {
+  margin: 1em 1em;
+  background-color: #e4e4e4;
   position: relative;
   align-items: center;
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: 2em 1em;
-  padding: 0 1em;
   padding-bottom: 1em;
   align-content: space-between;
-  background-color: #e4e4e4;
+  
   border-radius: 20px;
+  justify-content: space-around;
+  padding: 1em 1em;
 }
 
 
@@ -415,7 +431,7 @@ h1 {
 }
 
 .homepage_items div > *{
-    padding-top: 1em;
+    margin: 0.5em 0;
 }
 
 .homepage_items svg {
@@ -427,7 +443,7 @@ h1 {
     flex-direction: column;
     padding: 1em 0;
     margin: 2em auto;
-    width: 40vw;
+    width: 80%;
     position: relative;
 }
 
@@ -435,8 +451,10 @@ h1 {
     padding: 0.5em;
     display: flex;
     flex-direction: column;
-    margin-top: 1em;
+    position: relative;
     background-color: lightgray;
+    z-index: 0;
+    
     flex: 1;
     justify-content: center;
     align-content: center;
@@ -487,7 +505,7 @@ h1 {
     position: absolute;
     right: 0;
     width: 3em;
-    top: 0;
+    top: -50px;
 }
 
 .hobbies div > *{
@@ -499,9 +517,7 @@ h1 {
 
 }
 
-.item-buttons {
-  width: 100%;
-}
+
 
 .star-icon path{
   fill: #aaa;
@@ -529,7 +545,7 @@ h1 {
 }
 
 #opciones-crear {
-  display: none;
+  display: block;
   padding: 1em;
   background-color: lightgray;
   position: absolute;
@@ -538,13 +554,18 @@ h1 {
   opacity: 0;
   overflow-x: hidden;
   width: 100%;
-  transition: opacity, width 0.3s ease;
   pointer-events: none;
+  z-index: 1;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   
 }
 
+#completed-tasks-h1 {
+  grid-column: 1/ span 2;
+}
+
 #opciones-crear a{
-  pointer-events: all;
+    pointer-events: all;
     margin: 0 auto;
     padding: 1em;
     border: none;
@@ -578,16 +599,20 @@ h1 {
 
 @keyframes fade-in {
   0% { opacity: 0;
-       left: 100%;  }
+    rigth: 10%;  
+    }
   100% { opacity: 1;
-        left: 0; }
+        rigth: 0; }
 }
 
 @keyframes fade-out {
   0% { opacity: 1; 
-      left: 0}
+    rigth: 0}
   100% { opacity: 0; 
-      left: 100%}
+    rigth: 10%;
+    
+  }
+    
 }
 
 
@@ -627,6 +652,62 @@ input[type="radio"]:checked {
   
 } */
 
+
+
+.item_group {
+  
+  padding: 1em 2em;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  
+  grid-gap: 1em;
+}
+
+.tasks .item {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+
+
+.item_options {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  z-index: 1;
+  background-color: #666;
+  height: 100%;
+  right: 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  }
+
+.optionsLinks {
+  display: flex;
+  justify-content: space-around ;
+  height: 100%;
+  flex-direction: column;
+  padding: 0 1em;
+}
+
+
+.options_checkbox {
+  position: absolute;
+  z-index: 2;
+  bottom: 10%;
+  right: 10%;
+  background: transparent;
+}
+
+#item-options button {
+  display: block;
+  margin: 0.5em 0;
+}
+
 @media (max-width: 500px) {
   .homepage_items {
     
@@ -643,22 +724,7 @@ input[type="radio"]:checked {
   .item_list {
     width: 90% ;
   }
-  
-}
-
-.item_group {
-  background-color: lightgray;
-  padding: 1em 2em;
-  border-radius: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1em;
-}
-
-.tasks .item {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  flex: 1;
-  flex-wrap: wrap;
+  .item_group {
+    grid-template-columns: 1fr;
+  }
 }
