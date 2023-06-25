@@ -3,7 +3,7 @@ from .models import Task, TaskList
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from . import forms
-
+import json
 # tasklists
 
 @login_required(login_url= 'accounts:login')
@@ -36,11 +36,12 @@ def taskList_delete(request, id):
         return JsonResponse({'message': 'Entrada eliminada correctamente.'})
     
 def taskList_details(request, id):
-    
+    current_user = request.user
     taskList = TaskList.objects.get(id=id)
-    
+    completedTasks = Task.objects.filter(id_lista=taskList.id, author=current_user, completed=True)
+
     tasks = Task.objects.filter(id_lista = taskList.id)
-    return render(request, 'tasks/taskList_details.html', {'taskList': taskList, 'tasks': tasks})
+    return render(request, 'tasks/taskList_details.html', {'taskList': taskList, 'tasks': tasks, 'completedTasks': completedTasks})
 
 @login_required(login_url= 'accounts:login')
 def taskList_create(request):
@@ -127,15 +128,26 @@ def task_create(request, tlid=None):
 def task_completed(request):
     if request.method == 'POST' :
         task_id = request.POST.get('task_id')
-        
-
         # Lógica para marcar la tarea como completada en la base de datos
-
         task = Task.objects.get(id=task_id)
         task.completed = True
         task.save()
         updated_status = "completada"
         response_data = {'titulo': task.titulo}
         return JsonResponse({'success': True, 'status': updated_status})
+    else:
+        return JsonResponse({'error': 'Invalid request'})
+    
+def task_pending(request):
+    if request.method == 'POST' :
+        task_id = request.POST.get('task_id')
+        # Lógica para marcar la tarea como completada en la base de datos
+        task = Task.objects.get(id=task_id)
+        task.completed = False
+        task.save()
+        updated_status = "pendiente"
+        response_data = {'titulo': task.titulo}
+        urgencia = task.urgencia
+        return JsonResponse({'success': True, 'status': updated_status, 'urgencia': urgencia})
     else:
         return JsonResponse({'error': 'Invalid request'})

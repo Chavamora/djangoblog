@@ -67,14 +67,14 @@
     <p>Aun no tienes ninguna tarea, haz click en "+" para agregar una! </p>
     {%endif%}
     {%if generalTasks%}
-    <h1>Tareas Generales</h1>
-    <div class="item_group">
+    <h1 id="generalTasks-h1">Tareas Generales</h1>
+    <div class="item_group" id="generalTasks">
 
 
         {%for task in generalTasks%}
         <div class="item" id="item-{{task.id}}">
             <div class="item_header">
-                <h2 class="{{ task.urgencia }}">
+                <h2 name="urgencia" class="{{ task.urgencia }}">
                     {% if task.urgencia == "Urgente" %}
                     Urgente
                     {% else %}
@@ -117,12 +117,14 @@
     </div>
     {%endif%}
     {%if generalCompletedTasks%}
-    <h1>Tareas Completadas</h1>
+    <h1 id="completed-tasks-h1">Tareas Completadas</h1>
     <div id="completed-tasks" class="item_group">
+        
         {%for task in generalCompletedTasks%}
         <div class="item" id="item-{{task.id}}">
             <div class="item_header">
-                <h2><a href="{%url 'tasks:details' id=task.id%}"> {{ task.titulo }} </a></h2>
+                
+                <h2 class="completed"><a href="{%url 'tasks:details' id=task.id%}"> {{ task.titulo }} </a></h2>
                 <h2><a href="{%url 'tasks:details' id=task.id%}"> {{ task.fecha_limite }} </a></h2>
             </div>
             <div class="item_body">

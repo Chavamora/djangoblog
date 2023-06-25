@@ -1,8 +1,10 @@
 $(document).ready(function () {
-    $('.delete').click(function () {
-      var taskId = $(this).data('task-id');
+    $('.item_options').on('click', '.delete', function (e) {
+      var taskId = $(e.target).data('task-id');
       var csrftoken = Cookies.get('csrftoken');
-      var deletedItem = $(this).closest(".item");
+      var item = $(this).closest('.item');
+      var optionsItem = $(this).closest('.item').find('.item_options');
+      var checkbox = $(this).closest('.item').find('.options_checkbox');
 
       // Mostrar ventana de confirmación
       if (confirm("¿Estás seguro de que deseas eliminar este elemento?")) {
@@ -18,8 +20,18 @@ $(document).ready(function () {
           },
   
           success: function (response) {
-            console.log(response);
-            deletedItem.css("display", "none");
+            item.remove();
+            if($('#generalTasks').children().length === 0) {
+              $('#generalTasks').remove();
+              $('#generalTasks-h1').remove();
+              $('.item_list').append('<p>Aun no tienes ninguna tarea, haz click en "+" para agregar una! </p>')
+            }
+            
+            
+            if($('#completed-tasks').children().length === 0) {
+              $('#completed-tasks').remove();
+              $('#completed-tasks-h1').remove();
+            }
           },
           error: function (xhr, errmsg, err) {
             // Manejo de errores si la solicitud falla

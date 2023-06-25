@@ -544,6 +544,10 @@ h1 {
   z-index: 1;
 }
 
+#completed-tasks-h1 {
+  grid-column: 1/ span 2;
+}
+
 #opciones-crear a{
     pointer-events: all;
     margin: 0 auto;
