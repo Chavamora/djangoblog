@@ -40,7 +40,8 @@
             </div>
             <div class="item_body">
                 <p> {{taskList.snippet}} </p>
-                <p> {{task.date}} </p>
+                <p> {{taskList.date}} </p>
+                <p> {{taskList|length}} </p>
                 <div class="item_buttons">
 
                     <svg class="delete-icon" data-entry-id="{{ taskList.id }}" id="delete-icon-{{taskList.id}}"
@@ -87,6 +88,7 @@
             <div class="item_body">
                 <p> {{task.snippet}} </p>
                 <p> {{task.fecha}} </p>
+                
                 <div class="item_buttons">
                     <input class="options_checkbox" type="checkbox">
 

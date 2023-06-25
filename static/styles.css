@@ -320,6 +320,7 @@ footer {
     
     padding: 20px;
     margin: 0 auto;
+    
 }
 
 .site-form input, .site-form textarea{
@@ -354,6 +355,19 @@ a.highlight {
 
 .errorlist {
     padding: 0;
+}
+
+.site-form input, textarea {
+  border: none;
+  border-radius: 20px;
+}
+
+.site-form select {
+  background: none;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 0 auto;
 }
 
 .site-form input[type="submit"] {
@@ -491,7 +505,7 @@ h1 {
     position: absolute;
     right: 0;
     width: 3em;
-    top: 0;
+    top: -50px;
 }
 
 .hobbies div > *{
@@ -542,6 +556,8 @@ h1 {
   width: 100%;
   pointer-events: none;
   z-index: 1;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  
 }
 
 #completed-tasks-h1 {

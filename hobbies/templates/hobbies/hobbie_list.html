@@ -9,6 +9,7 @@
         </a>
         </svg>
         {%if hobbies%}
+        <div class="item_group">
         {%for hobbie in hobbies%}
         
             <div class="item">
@@ -19,6 +20,7 @@
                 <!-- <p class="author"> added by {{hobbie.author.username}} </p> -->
             </div>
         {%endfor%}
+    </div>
         {%else%}
 
         <p>Aun no tienes ningun Hobbie, haz click en "+" para agregar uno! </p>
